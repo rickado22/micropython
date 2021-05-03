@@ -42,12 +42,12 @@ ar = array.array("I", [0 for _ in range(NUM_LEDS)])
 # Cycle colours.
 for i in range(4 * NUM_LEDS):
     for j in range(NUM_LEDS):
-        r = j * 100 // (NUM_LEDS - 1)
+        g = j * 100 // (NUM_LEDS - 1)
         b = 100 - j * 100 // (NUM_LEDS - 1)
         if j != i % NUM_LEDS:
-            r >>= 3
+            g >>= 3
             b >>= 3
-        ar[j] = r << 16 | b
+        ar[j] = g << 16 | b
     sm.put(ar, 8)
     time.sleep_ms(50)
 
